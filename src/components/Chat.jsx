@@ -37,7 +37,8 @@ export default function Chat() {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(window.location.origin, { path: '/socket.io', transports: ['websocket', 'polling'] })
+      const backendUrl = import.meta.env.VITE_API_URL || window.location.origin
+      socket = io(backendUrl, { path: '/socket.io', transports: ['websocket', 'polling'] })
     }
     socket.on('connect', () => setConnected(true))
     socket.on('disconnect', () => setConnected(false))
