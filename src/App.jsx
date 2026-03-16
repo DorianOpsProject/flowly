@@ -1,10 +1,23 @@
-import { useState } from 'react'
-import Landing from './components/Landing'
-import Dashboard from './components/Dashboard'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import Pricing from './components/Pricing'
+import Works from './components/Works'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 export default function App() {
-  const [page, setPage] = useState('landing')
-  return page === 'landing'
-    ? <Landing onGetStarted={() => setPage('dashboard')} />
-    : <Dashboard onBack={() => setPage('landing')} />
+  return (
+    <div className="min-h-screen bg-[#08080f] text-white font-['Inter',sans-serif]">
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <Pricing />
+        <Works />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  )
 }
